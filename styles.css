@@ -854,4 +854,110 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+}
+
+/* 响应式导航栏调整 */
+@media (max-width: 768px) {
+    .navbar .container {
+        height: 60px;  /* 减小导航栏高度 */
+    }
+
+    .logo-symbol {
+        width: 35px;   /* 减小 logo 尺寸 */
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .logo span {
+        font-size: 1.4rem;  /* 减小 logo 文字大小 */
+    }
+
+    .nav-links {
+        display: none;  /* 在移动端隐藏导航链接 */
+    }
+
+    /* 英雄区域移动端优化 */
+    .hero {
+        padding-top: 60px;  /* 为固定导航栏留出空间 */
+        height: 100vh;
+        min-height: 500px;  /* 确保最小高度 */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;  /* 减小主标题大小 */
+        margin-bottom: 15px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;    /* 减小副标题大小 */
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1rem;    /* 调整描述文字大小 */
+        margin-bottom: 30px;
+        padding: 0 20px;    /* 添加左右内边距 */
+    }
+
+    .cta-button {
+        padding: 12px 30px; /* 调整按钮大小 */
+        font-size: 0.9rem;
+    }
+
+    /* 调整内容垂直居中 */
+    .hero .container {
+        padding: 20px;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* 添加汉堡菜单按钮 */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    /* 移动端导航菜单 */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .nav-links.active li {
+        margin: 10px 0;
+    }
+}
+
+/* 优化小屏幕设备 */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
 } 
