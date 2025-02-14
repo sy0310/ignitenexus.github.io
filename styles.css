@@ -90,7 +90,7 @@ body {
     background-color: var(--primary-color);
     /* 背景图片设置 */
     background-image: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
-                     url('../columbiabg.png');
+                     url('assets/images/background/columbiabg.png');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
