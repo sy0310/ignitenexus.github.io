@@ -86,8 +86,15 @@ body {
 
 /* 英雄区域样式 */
 .hero {
-    background: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
-                url('assets/images/background/columbia-bg.jpg') center/cover fixed;
+    /* 添加备用背景色 */
+    background-color: var(--primary-color);
+    /* 背景图片设置 */
+    background-image: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
+                     url('assets/images/background/columbiabg.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
