@@ -1,0 +1,890 @@
+:root {
+    --primary-color: #1B4F72;
+    --secondary-color: #2E86C1;
+    --accent-color: #FFFFFF;
+    --text-color: #2C3E50;
+    --light-bg: #F5F6FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 导航栏样式 */
+.navbar {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-symbol {
+    background: var(--primary-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 英雄区域样式 */
+.hero {
+    background: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
+                url('assets/images/background/columbia-bg.jpg') center/cover fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 调整网格效果的透明度 */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0 / 50px 50px,
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px) 0 0 / 50px 50px;
+    animation: grid-move 20s linear infinite;
+}
+
+/* 减轻渐变叠加的强度 */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(27,79,114,0.4), 
+        rgba(46,134,193,0.3));
+    z-index: 1;
+}
+
+/* 添加浮动圆形装饰 */
+.hero-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    animation: float 15s infinite;
+}
+
+.circle:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    top: 40%;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.circle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    bottom: -75px;
+    left: 35%;
+    animation-delay: -10s;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    animation: fade-up 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #fff, #e3e3e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* 部分样式 */
+section {
+    padding: 100px 0;
+}
+
+.mission-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(27,79,114,0.1);
+    border: 1px solid rgba(27,79,114,0.1);
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+/* 表单样式 */
+.join-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.join-form input,
+.join-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* 页脚样式更新 */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 50px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo .logo-symbol {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+}
+
+.footer-logo p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.wechat-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.qr-code img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.wechat-info {
+    max-width: 200px;
+}
+
+.wechat-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.wechat-info p {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        flex-direction: column;
+    }
+    
+    .wechat-section {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .wechat-info {
+        text-align: center;
+    }
+}
+
+/* 添加事件卡片样式 */
+.event-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(27,79,114,0.1);
+    margin-bottom: 20px;
+    border: 1px solid rgba(27,79,114,0.1);
+    transition: all 0.3s;
+}
+
+.event-card:hover {
+    transform: translateX(5px);
+    border-color: var(--primary-color);
+}
+
+.event-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.event-card .event-date {
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+/* 添加动画关键帧 */
+@keyframes grid-move {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(50px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(30px) rotate(180deg);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 关于我们部分样式 */
+.about-section {
+    background: var(--light-bg);
+}
+
+.about-content {
+    margin-top: 40px;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 30px 0 15px;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.goal-item {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+    transition: all 0.3s;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.goal-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.goal-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.goal-item p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* 使命详情样式 */
+.mission-details {
+    margin: 30px 0;
+    display: grid;
+    gap: 25px;
+}
+
+.mission-detail-item {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+}
+
+.mission-detail-item h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+/* 特色部分样式 */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.feature-item {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.feature-content h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.feature-content p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-details,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-item {
+        padding: 20px;
+    }
+}
+
+/* 近期活动敬请期待样式 */
+.events-coming-soon {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+    margin-top: 30px;
+}
+
+.coming-soon-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.coming-soon-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.coming-soon-content h3 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.coming-soon-content p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.stay-tuned {
+    color: var(--secondary-color) !important;
+    font-size: 1.3rem !important;
+    font-weight: 600;
+    margin-top: 25px !important;
+}
+
+/* Section通用装饰样式 */
+.section-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    display: inline-block;
+    position: relative;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    padding-bottom: 15px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* 添加背景装饰 */
+.section-bg-dots {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.1;
+    background-image: radial-gradient(var(--primary-color) 1px, transparent 1px);
+    background-size: 15px 15px;
+}
+
+.about-section .section-bg-dots {
+    top: 50px;
+    right: 50px;
+}
+
+.mission-section .section-bg-dots {
+    bottom: 50px;
+    left: 50px;
+}
+
+.events-section .section-bg-dots {
+    top: 50px;
+    left: 50px;
+}
+
+/* 添加section过渡效果 */
+.section-transition {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-transition::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom right, transparent 49%, var(--light-bg) 50%);
+}
+
+/* 更新卡片样式 */
+.card, .feature-item, .mission-detail-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before, .feature-item::before, .mission-detail-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover::before, .feature-item:hover::before, .mission-detail-item:hover::before {
+    opacity: 1;
+}
+
+/* 添加微妙的动画效果 */
+@keyframes float-bg {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.section-bg-dots {
+    animation: float-bg 10s ease-in-out infinite;
+}
+
+/* 理念部分样式 */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.philosophy-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+    transition: all 0.3s ease;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.chinese-char {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* 选择理由样式 */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.reason-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+    transition: all 0.3s ease;
+}
+
+.reason-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.reason-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.reason-content h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.reason-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .philosophy-grid,
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reason-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .chinese-char {
+        font-size: 2.5rem;
+    }
+}
+
+/* 名称含义部分样式 */
+.name-meaning {
+    margin: 30px 0;
+}
+
+.english-meaning {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: 0 3px 15px rgba(27,79,114,0.08);
+    border: 1px solid rgba(27,79,114,0.1);
+    transition: all 0.3s ease;
+}
+
+.english-meaning:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.meaning-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 0;
+    text-align: justify;
+}
+
+/* 调整中文名称解释的间距 */
+.chinese-meaning {
+    margin-bottom: 30px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .english-meaning {
+        padding: 20px;
+    }
+    
+    .meaning-text {
+        font-size: 1rem;
+    }
+}
+
+/* 二维码占位样式 */
+.qr-code-wrapper {
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.1);
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(255,255,255,0.3);
+}
+
+.qr-code-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+}
+
+.placeholder-text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.wechat-info .coming-soon {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    margin-top: 8px;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* 添加到 styles.css，用于生成临时的 favicon */
+.favicon-logo {
+    width: 32px;
+    height: 32px;
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+} 
