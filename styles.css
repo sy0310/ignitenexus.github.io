@@ -90,12 +90,6 @@ body {
     background-color: var(--primary-color);
     /* 背景图片设置 */
     background-image: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
-                     url('/assets/images/background/columbiabg.png');
-    /* 或者尝试相对路径 */
-    background-image: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
-                     url('../assets/images/background/columbiabg.png');
-    /* 或者尝试当前目录 */
-    background-image: linear-gradient(rgba(27,79,114,0.6), rgba(27,79,114,0.7)),
                      url('./assets/images/background/columbiabg.png');
     background-position: center;
     background-size: cover;
@@ -122,6 +116,7 @@ body {
         linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0 / 50px 50px,
         linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px) 0 0 / 50px 50px;
     animation: grid-move 20s linear infinite;
+    z-index: 1;
 }
 
 /* 减轻渐变叠加的强度 */
@@ -135,54 +130,13 @@ body {
     background: linear-gradient(135deg, 
         rgba(27,79,114,0.4), 
         rgba(46,134,193,0.3));
-    z-index: 1;
+    z-index: 2;
 }
 
-/* 添加浮动圆形装饰 */
-.hero-circles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-    animation: float 15s infinite;
-}
-
-.circle:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: -150px;
-    left: -150px;
-    animation-delay: 0s;
-}
-
-.circle:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    top: 40%;
-    right: -100px;
-    animation-delay: -5s;
-}
-
-.circle:nth-child(3) {
-    width: 150px;
-    height: 150px;
-    bottom: -75px;
-    left: 35%;
-    animation-delay: -10s;
-}
-
+/* 确保内容在最上层 */
 .hero .container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     animation: fade-up 1s ease-out;
 }
 
